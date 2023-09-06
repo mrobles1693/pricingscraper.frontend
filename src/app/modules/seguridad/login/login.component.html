@@ -1,0 +1,29 @@
+<router-outlet></router-outlet>
+<div class="w-100 h-100 login-background">
+    <div class="d-flex justify-content-center">
+        <div class="card mt-5 p-4 shadow-lg p-3 mb-5 bg-white rounded" style="width: 400px; border: none;">
+            <div class="text-center">
+                <h2 class="py-2 mb-4" style="background-color: #3f51b5;color: white;border-radius: 5px 5px 0px 0px;">
+                    Bienvenido a PRICING SCRAPER
+                </h2>
+                <mat-form-field class="w-100 mb-2" appearance="outline">
+                    <mat-label>Usuario</mat-label>
+                    <input type="text" [formControl]="fcUsuario" (keydown.enter)="login()" matInput>
+                    <mat-error *ngIf="isInvalidFc(fcUsuario)">{{getErrorFC(fcUsuario)}}</mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input [type]="hidePass ? 'password' : 'text'" [formControl]="fcPassword" (keydown.enter)="login()" matInput>
+                    <mat-icon matSuffix (click)="hidePass = !hidePass">{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon> 
+                    <mat-error *ngIf="isInvalidFc(fcPassword)">{{getErrorFC(fcPassword)}}</mat-error>
+                </mat-form-field> 
+                <mat-error *ngIf="bError" class="pb-3">
+                    {{sMsjError}}
+                </mat-error>
+                <button class="w-100" mat-raised-button color="primary" (click)="login()">INICIAR SESIÓN</button>
+                <hr>
+                <button class="w-100" mat-stroked-button>Olvide mi contraseña</button>
+            </div>
+        </div>
+    </div>
+</div>
