@@ -1,0 +1,34 @@
+.ps-header-component {
+    color: white !important;
+    background: #3f51b5 !important;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.ps-th {
+    background-color: #3f51b5 !important;
+    color: white !important;
+    text-align: center !important;
+}
+
+.ps-mat-card-header {
+    border-radius: 5px 5px 0 0;
+    background-color: #3f51b5;
+    color: white;
+}
+
+.ps-mat-error-ng-select{
+    margin-top: -20px;
+    font-size: 12px;
+    color: red;
+    padding-left: 16px;
+    text-align: start;
+}
+
+.ps-table-container{
+    position: relative;
+    overflow: auto;
+}
