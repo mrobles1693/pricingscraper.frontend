@@ -21,6 +21,9 @@ export class ContainerComponent {
     private router : Router,
     private spinner : NgxSpinnerService,
   ){
+    if(this.authService.isLogged()){
+      this.username = this.authService.getUserName();
+    }
   }
 
   closeNavBar() {
@@ -33,12 +36,6 @@ export class ContainerComponent {
 
   logout(){
     this.authService.logout();
-  }
-
-  loadUserName(){
-    if(localStorage.getItem('userName') == null){
-      localStorage.setItem('userName', this.authService.getUserName());
-    }
   }
 
   navigateTo(ruta : string){
