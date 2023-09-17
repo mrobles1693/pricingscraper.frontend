@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-center m-4">
+    <div class="w-100 text-center">
+        <div class="ps-header-component">
+            LISTA DE PRESENTACIONES
+        </div>
+        <div class="row">
+            <mat-form-field class="col-12 col-md-6 m-0" appearance="outline">
+                <mat-label>Filtrar:</mat-label>
+                <input type="text" [formControl]="fcFiltro" (keyup)="filtrarPresentaciones()" matInput>
+            </mat-form-field>
+            <div class="col-12 col-md-4 m-0"></div>
+            <div class="col-12 col-md-2 mx-0">
+                <button mat-raised-button class="w-100 my-auto" color="primary" (click)="odFormPresentacion()">NUEVO</button>
+            </div>
+        </div>
+        <div class="mt-3 mat-elevation-z8">
+            <div class="ps-table-container">
+                <table mat-table [dataSource]="dsPresentaciones">
+                    <ng-container matColumnDef="nIdPresentacion">
+                        <th mat-header-cell class="ps-th" *matHeaderCellDef>ID</th>
+                        <td mat-cell class="text-center" *matCellDef="let Presentacion"> {{Presentacion.nIdPresentacion}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="sPresentacion">
+                        <th mat-header-cell class="ps-th" *matHeaderCellDef>Presentacion</th>
+                        <td mat-cell class="text-center" *matCellDef="let Presentacion"> {{Presentacion.sPresentacion}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="sDescripcion">
+                        <th mat-header-cell class="ps-th" *matHeaderCellDef>Descripción</th>
+                        <td mat-cell class="text-center" *matCellDef="let Presentacion"> {{Presentacion.sDescripcion}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Opciones">
+                        <th mat-header-cell class="ps-th" *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let Presentacion">
+                            <button mat-icon-button matTooltip="Editar" color="primary" (click)="odFormPresentacion(Presentacion)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+    
+                    <tr mat-header-row *matHeaderRowDef="dcPresentaciones"></tr>
+                    <tr mat-row *matRowDef="let row; columns: dcPresentaciones;"></tr>
+                </table>
+            </div>
+            <mat-paginator [hidden]="dsPresentaciones.data.length==0" #pagPresentaciones [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>

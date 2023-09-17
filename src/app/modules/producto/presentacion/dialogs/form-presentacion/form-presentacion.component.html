@@ -1,0 +1,25 @@
+<div class="ps-header-component m-3">
+    {{sTitulo}} PRESENTACION
+</div>
+<div class="row m-0 p-0">
+    <mat-form-field class="col-12 col-md-2 m-0">
+        <mat-label>ID:</mat-label>
+        <input type="text" matInput disabled value="{{nIdPresentacion}}">
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-10 m-0">
+        <mat-label>País</mat-label>
+        <input type="text" matInput [formControl]="fcPresentacion">
+        <mat-error *ngIf="isInvalidFc(fcPresentacion)">{{getErrorFC(fcPresentacion)}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-12 m-0">
+        <mat-label>Descripción</mat-label>
+        <input type="text" matInput [formControl]="fcDescripcion">
+        <mat-error *ngIf="isInvalidFc(fcDescripcion)">{{getErrorFC(fcDescripcion)}}</mat-error>
+    </mat-form-field>
+</div>
+<div class="d-flex justify-content-between m-3">
+    <button mat-raised-button color="primary" (click)="fnGuardar()">GUARDAR</button>
+    <button mat-raised-button color="warn" (click)="onClose()">CANCELAR</button>
+</div>

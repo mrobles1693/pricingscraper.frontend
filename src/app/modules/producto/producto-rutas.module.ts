@@ -8,10 +8,15 @@ import { ProductoComponent } from './producto/producto.component';
 import { MarcaComponent } from './marca/marca.component';
 import { FormMarcaComponent } from './marca/dialogs/form-marca/form-marca.component';
 
+import { PresentacionComponent } from './presentacion/presentacion.component';
+import { FormPresentacionComponent } from './presentacion/dialogs/form-presentacion/form-presentacion.component';
+
 export const PRODUCTO_RUTAS_COMPONENTES = [
     ProductoComponent,
     MarcaComponent,
     FormMarcaComponent,
+    PresentacionComponent,
+    FormPresentacionComponent
 ]
 
 const routes : Routes = [
@@ -27,6 +32,10 @@ const routes : Routes = [
             {
                 path: "marca",
                 component: MarcaComponent,
+            },
+            {
+                path: "presentacion",
+                component: PresentacionComponent,
             }
         ]
     },
