@@ -11,12 +11,17 @@ import { FormMarcaComponent } from './marca/dialogs/form-marca/form-marca.compon
 import { PresentacionComponent } from './presentacion/presentacion.component';
 import { FormPresentacionComponent } from './presentacion/dialogs/form-presentacion/form-presentacion.component';
 
+import { CategoriaComponent } from './categoria/categoria.component';
+import { FormCategoriaComponent } from './categoria/dialogs/form-categoria/form-categoria.component';
+
 export const PRODUCTO_RUTAS_COMPONENTES = [
     ProductoComponent,
     MarcaComponent,
     FormMarcaComponent,
     PresentacionComponent,
-    FormPresentacionComponent
+    FormPresentacionComponent,
+    CategoriaComponent,
+    FormCategoriaComponent
 ]
 
 const routes : Routes = [
@@ -36,6 +41,10 @@ const routes : Routes = [
             {
                 path: "presentacion",
                 component: PresentacionComponent,
+            },
+            {
+                path: "categoria",
+                component: CategoriaComponent,
             }
         ]
     },
