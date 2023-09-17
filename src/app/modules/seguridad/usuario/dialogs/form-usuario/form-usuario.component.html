@@ -1,0 +1,29 @@
+<div class="ps-header-component m-3">
+    {{sTitulo}} USUARIO
+</div>
+<div class="row m-0 p-0">
+    <mat-form-field class="col-12 col-md-2 m-0">
+        <mat-label>ID:</mat-label>
+        <input type="text" matInput disabled value="{{nIdUsuario}}">
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-6 m-0">
+        <mat-label>Usuario</mat-label>
+        <input type="text" matInput [formControl]="fcUsuario">
+        <mat-error *ngIf="isInvalidFc(fcUsuario)">{{getErrorFC(fcUsuario)}}</mat-error>
+    </mat-form-field>
+
+    <mat-slide-toggle class="col-12 col-md-4 m-auto" [formControl]="fcActivo">Activo: {{fcActivo.value? 'SI' : 'NO'}}</mat-slide-toggle>
+
+
+    <mat-form-field class="col-12 col-md-12 m-0">
+        <mat-label>Password</mat-label>
+        <input [type]="hidePass ? 'password' : 'text'" [formControl]="fcPassword" matInput>
+        <mat-icon matSuffix (click)="hidePass = !hidePass">{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="isInvalidFc(fcPassword)">{{getErrorFC(fcPassword)}}</mat-error>
+    </mat-form-field>
+</div>
+<div class="d-flex justify-content-between m-3">
+    <button mat-raised-button color="primary" (click)="fnGuardar()">GUARDAR</button>
+    <button mat-raised-button color="warn" (click)="onClose()">CANCELAR</button>
+</div>

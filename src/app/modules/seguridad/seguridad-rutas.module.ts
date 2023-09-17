@@ -6,11 +6,12 @@ import { ContainerComponent } from 'src/app/shared/components/container/containe
 import { LoginComponent } from './login/login.component';
 
 import { UsuarioComponent } from './usuario/usuario.component';
-
+import { FormUsuarioComponent } from './usuario/dialogs/form-usuario/form-usuario.component';
 
 export const SEGURIDAD_RUTAS_COMPONENTES = [
     LoginComponent,
     UsuarioComponent,
+    FormUsuarioComponent,
 ]
 
 const routes : Routes = [
