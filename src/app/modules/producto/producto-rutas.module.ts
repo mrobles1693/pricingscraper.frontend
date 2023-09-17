@@ -5,8 +5,13 @@ import { ContainerComponent } from 'src/app/shared/components/container/containe
 
 import { ProductoComponent } from './producto/producto.component';
 
+import { MarcaComponent } from './marca/marca.component';
+import { FormMarcaComponent } from './marca/dialogs/form-marca/form-marca.component';
+
 export const PRODUCTO_RUTAS_COMPONENTES = [
     ProductoComponent,
+    MarcaComponent,
+    FormMarcaComponent,
 ]
 
 const routes : Routes = [
@@ -18,6 +23,10 @@ const routes : Routes = [
             {
                 path: "producto",
                 component : ProductoComponent,
+            },
+            {
+                path: "marca",
+                component: MarcaComponent,
             }
         ]
     },

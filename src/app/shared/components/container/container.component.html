@@ -1,51 +1,63 @@
 <mat-sidenav-container class="h-100">
-    <mat-sidenav style="min-width: 10%;" #sideNavPrincipal mode="side">
-      <mat-toolbar color="primary" class="d-flex justify-content-between flex-wrap m-0">
-            <span>PRICING SCRAPER</span>
-            <button mat-icon-button matTooltip="Cerrar Menu" (click)="closeNavBar()">
-                <mat-icon>close</mat-icon>
+  <mat-sidenav style="min-width: 10%;" #sideNavPrincipal mode="side">
+    <mat-toolbar color="primary" class="d-flex justify-content-between flex-wrap m-0">
+      <span>PRICING SCRAPER</span>
+      <button mat-icon-button matTooltip="Cerrar Menu" (click)="closeNavBar()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+  
+    <mat-accordion>
+
+      <mat-expansion-panel hideToggle disabled>
+        <mat-expansion-panel-header class="p-0">
+          <mat-panel-title class="m-0">
+            <button mat-button class="w-100 px-4" style="justify-content: start;" (click)="navigateTo('producto/marca')">
+              MARCAS
             </button>
-      </mat-toolbar>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle disabled>
+        <mat-expansion-panel-header class="p-0">
+          <mat-panel-title class="m-0">
+            <button mat-button class="w-100 px-4" style="justify-content: start;" (click)="navigateTo('producto/producto')">
+              PRODUCTOS
+            </button>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle disabled>
+        <mat-expansion-panel-header class="p-0">
+          <mat-panel-title class="m-0">
+            <button mat-button class="w-100 px-4" style="justify-content: start;" (click)="navigateTo('seguridad/usuario')">
+              USUARIOS
+            </button>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+      
+    </mat-accordion>
+  </mat-sidenav>
   
-      <mat-accordion>
-        <mat-expansion-panel hideToggle disabled>
-            <mat-expansion-panel-header class="p-0">
-                <mat-panel-title class="m-0">
-                  <button mat-button class="w-100 px-4" style="justify-content: start;" (click)="navigateTo('producto/producto')">
-                    PRODUCTOS
-                  </button>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-        </mat-expansion-panel>
-        <mat-expansion-panel hideToggle disabled>
-            <mat-expansion-panel-header class="p-0">
-                <mat-panel-title class="m-0">
-                  <button mat-button class="w-100 px-4" style="justify-content: start;" (click)="navigateTo('seguridad/usuario')">
-                    USUARIOS
-                  </button>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-        </mat-expansion-panel>
-      </mat-accordion>
-  
-    </mat-sidenav>
-  
-    <mat-sidenav-content>
-      <mat-toolbar color="primary" class="d-flex justify-content-between flex-wrap m-0">
-          <div class="d-flex me-auto align-items-center">
-              <button mat-icon-button matTooltip="Menú" (click)="openNavBar()">
-                  <mat-icon>menu</mat-icon>
-              </button>
-          </div>
-          <div class="d-flex ms-auto align-items-center">
-              <span>{{username}}</span>
-              <button mat-icon-button matTooltip="Cerrar sesión" (click)="logout()">
-                  <mat-icon>logout</mat-icon>
-              </button>
-          </div>
-      </mat-toolbar>
-  
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-    
-  </mat-sidenav-container>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="d-flex justify-content-between flex-wrap m-0">
+        <div class="d-flex me-auto align-items-center">
+            <button mat-icon-button matTooltip="Menú" (click)="openNavBar()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div class="d-flex ms-auto align-items-center">
+          <span>{{username}}</span>
+          <button mat-icon-button matTooltip="Cerrar sesión" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+          </button>
+        </div>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
