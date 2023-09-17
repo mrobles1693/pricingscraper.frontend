@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center m-4">
+    <div class="w-100 text-center">
+        <div class="ps-header-component">
+            DETALLE DE PRODUCTOS
+        </div>
+        <div class="row m-0 py-4 shadow rounded-1">
+            <mat-form-field class="col-12 col-md-4" appearance="outline" >
+                <mat-label style="color: #3f51b5">ID PRODUCTO:</mat-label>
+                <input matInput value="{{producto?.nIdProducto}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-8" appearance="outline">
+                <mat-label style="color: #3f51b5">SKU:</mat-label>
+                <input matInput value="{{producto?.sSKU}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-8" appearance="outline" >
+                <mat-label style="color: #3f51b5">Descripcion:</mat-label>
+                <input matInput value="{{producto?.sDescripcion}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-4" appearance="outline">
+                <mat-label style="color: #3f51b5">Marca:</mat-label>
+                <input matInput value="{{producto?.sMarca}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-4" appearance="outline">
+                <mat-label style="color: #3f51b5">Presentacion:</mat-label>
+                <input matInput value="{{producto?.sPresentacion}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-4" appearance="outline">
+                <mat-label style="color: #3f51b5">Cantidad:</mat-label>
+                <input matInput value="{{producto?.nUnidades}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-4" appearance="outline">
+                <mat-label style="color: #3f51b5">Unidad Medida:</mat-label>
+                <input matInput value="{{producto?.sUnidadMedida + '(' + producto?.sSimbolo + ')'}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <div class="col d-flex justify-content-end">
+                <button mat-raised-button class="mx-2" color="primary" (click)="odFormProducto()">Editar</button>
+                <button mat-raised-button class="mx-2" color="accent" (click)="odFormCategorias()">Categorias</button>
+                <button mat-raised-button class="mx-2" color="warn" (click)="fnRegresar()">Regresar</button>
+            </div>
+        </div>
+        <app-similar [nIdProducto]="producto?.nIdProducto!"></app-similar>
+    </div>
+</div>
+    

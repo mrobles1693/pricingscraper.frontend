@@ -4,6 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContainerComponent } from 'src/app/shared/components/container/container.component';
 
 import { ProductoComponent } from './producto/producto.component';
+import { DetailsProductoComponent } from './producto/sub-views/details-producto/details-producto.component';
+import { SimilarComponent } from './producto/sub-views/similar/similar.component';
+import { FormProductoComponent } from './producto/dialogs/form-producto/form-producto.component';
+import { FormSimilarComponent } from './producto/dialogs/form-similar/form-similar.component';
+import { FormProductoCategoriaComponent } from './producto/dialogs/form-producto-categoria/form-producto-categoria.component';
 
 import { MarcaComponent } from './marca/marca.component';
 import { FormMarcaComponent } from './marca/dialogs/form-marca/form-marca.component';
@@ -24,6 +29,11 @@ import { BotExecutionComponent } from './bot-execution/bot-execution.component';
 
 export const PRODUCTO_RUTAS_COMPONENTES = [
     ProductoComponent,
+    DetailsProductoComponent,
+    SimilarComponent,
+    FormProductoComponent,
+    FormSimilarComponent,
+    FormProductoCategoriaComponent,
     MarcaComponent,
     FormMarcaComponent,
     PresentacionComponent,
@@ -46,6 +56,10 @@ const routes : Routes = [
             {
                 path: "producto",
                 component : ProductoComponent,
+            },
+            {
+                path : "producto/edit/:idProducto",
+                component : DetailsProductoComponent,
             },
             {
                 path: "marca",

@@ -1,0 +1,25 @@
+.ps-column-label {
+    color: white !important;
+    background: #3f51b5 !important;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: end;
+}
+
+.ps-column {
+    border-color: #3f51b5 !important;
+    border-width: 2px;
+    border-style: solid;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: start;
+    margin: 0 10px 0 10px;
+}
+
+.ps-rounded {
+    border-color: #3f51b5 !important;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 16px 10px 0 10px;
+}

@@ -1,0 +1,55 @@
+<div class="ps-header-component m-3">
+    {{sTitulo}} SIMILAR
+</div>
+<div class="row m-0 p-0">
+    <div class="col-12 m-0">
+        <ng-select
+            [formControl]="fcComercio"
+            placeholder="Comercio"
+            [items]="listComercio" 
+            [clearable]="true"
+            bindLabel="sDesc"
+            bindValue="nCod"
+            notFoundText="No hay comercios disponibles."
+            appendTo="body"
+            class="custom-ngform"
+        >
+        </ng-select>
+        <mat-error *ngIf="isInvalidFc(fcComercio)">{{getErrorFC(fcComercio)}}</mat-error>
+    </div>
+
+    <mat-form-field class="col-12 col-md-2 m-0">
+        <mat-label>ID:</mat-label>
+        <input type="text" matInput disabled value="{{nIdSimilar}}">
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-10 m-0">
+        <mat-label>SKU</mat-label>
+        <input type="text" matInput [formControl]="fcSKU">
+        <mat-error *ngIf="isInvalidFc(fcSKU)">{{getErrorFC(fcSKU)}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-12 m-0">
+        <mat-label>Descripción</mat-label>
+        <input type="text" matInput [formControl]="fcDescripcion">
+        <mat-error *ngIf="isInvalidFc(fcDescripcion)">{{getErrorFC(fcDescripcion)}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-12 m-0">
+        <mat-label>URL</mat-label>
+        <input type="text" matInput [formControl]="fcUrl">
+        <mat-error *ngIf="isInvalidFc(fcUrl)">{{getErrorFC(fcUrl)}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-6 m-0">
+        <mat-label>Precio</mat-label>
+        <input type="number" matInput [formControl]="fcPrecio">
+        <mat-error *ngIf="isInvalidFc(fcPrecio)">{{getErrorFC(fcPrecio)}}</mat-error>
+    </mat-form-field>
+
+    <mat-slide-toggle class="col-12 col-md-6 m-auto" [formControl]="fcElegido">Elegido: {{fcElegido.value? 'SI' : 'NO'}}</mat-slide-toggle>
+</div>
+<div class="d-flex justify-content-between m-3">
+    <button mat-raised-button color="primary" (click)="fnGuardar()">GUARDAR</button>
+    <button mat-raised-button color="warn" (click)="onClose()">CANCELAR</button>
+</div>

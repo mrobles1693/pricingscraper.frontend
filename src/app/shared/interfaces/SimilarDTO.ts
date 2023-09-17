@@ -1,0 +1,17 @@
+export interface SimilarDTO {
+    nIdSimilar? : number,
+    nIdProducto : number,
+    sProducto? : string,
+    nIdComercio : number,
+    sComercio? : string,
+    sUrl : string,
+    sDescripcion : string,
+    sSKU : string,
+    nPrecio : number,
+    bElegido : boolean,
+    bManual : boolean,
+    nIdUsuario_crea : number,
+    sUsuario_crea? : string,
+    dFecha_crea? : Date,
+    sFecha_crea? : string,
+}

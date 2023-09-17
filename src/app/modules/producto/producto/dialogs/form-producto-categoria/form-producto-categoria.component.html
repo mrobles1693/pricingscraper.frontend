@@ -1,0 +1,46 @@
+<div class="ps-header-component m-3">
+    PRODUCTO CATEGORIAS
+</div>
+<div class="row m-3 mb-2 p-0">
+    <div class="col-10 m-0">
+        <ng-select
+            [formControl]="fcCategoria"
+            placeholder="Categoria"
+            [items]="listCategoriasDisp" 
+            [clearable]="true"
+            bindLabel="sCategoria"
+            bindValue="nIdCategoria"
+            notFoundText="No hay categorias disponibles."
+            appendTo="body"
+            class="custom-ngform"
+        >
+        </ng-select>
+    </div>
+    <div class="col-2 my-auto">
+        <button mat-icon-button color="primary" matTooltip="Agregar categoria" (click)="fnAgregar()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>
+<div class="row m-3 mt-0 p-0" *ngIf="dsCategoria.data.length>0">
+    <div class="text-center p-1" style="color: white !important; background: #3f51b5 !important;">
+        ASIGNADAS
+    </div>
+    <table mat-table [dataSource]="dsCategoria">
+        <ng-container matColumnDef="sCategoria">
+            <th mat-header-cell class="ps-th text-center" *matHeaderCellDef>Categoria</th>
+            <td mat-cell class="text-center" *matCellDef="let categoria"> {{categoria.sCategoria}} </td>
+        </ng-container>
+        <ng-container matColumnDef="opcion">
+            <th mat-header-cell class="ps-th text-center" *matHeaderCellDef>Quitar</th>
+            <td mat-cell class="text-center" *matCellDef="let categoria">
+                <button mat-icon-button matTooltip="Eliminar categoria" color="primary" (click)="fnEliminar(categoria)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row style="height: 5px;" *matHeaderRowDef="dcCategoria"></tr>
+        <tr mat-row *matRowDef="let row; columns: dcCategoria;"></tr>
+    </table>
+</div>

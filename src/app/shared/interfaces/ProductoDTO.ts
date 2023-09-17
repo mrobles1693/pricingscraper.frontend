@@ -7,6 +7,7 @@ export interface ProductoDTO{
     nIdMarca : number,
     sMarca? : string,
     nIdUnidadMedida  : number,
+    sUnidadMedida? : string,
     sSimbolo? : string,
     nUnidades : number,
 }

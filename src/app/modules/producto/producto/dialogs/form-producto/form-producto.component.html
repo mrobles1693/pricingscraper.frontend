@@ -1,0 +1,79 @@
+<div class="ps-header-component m-3">
+    {{sTitulo}} PRODUCTO
+</div>
+<div class="row m-0 p-0">
+    <mat-form-field class="col-12 col-md-2 m-0">
+        <mat-label>ID:</mat-label>
+        <input type="text" matInput disabled value="{{nIdProducto}}">
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-10 m-0">
+        <mat-label>Producto</mat-label>
+        <input type="text" matInput [formControl]="fcSKU">
+        <mat-error *ngIf="isInvalidFc(fcSKU)">{{getErrorFC(fcSKU)}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-12 m-0">
+        <mat-label>Descripción</mat-label>
+        <input type="text" matInput [formControl]="fcDescripcion">
+        <mat-error *ngIf="isInvalidFc(fcDescripcion)">{{getErrorFC(fcDescripcion)}}</mat-error>
+    </mat-form-field>
+
+    <div class="col-12 col-md-6 m-0">
+        <ng-select
+            [formControl]="fcMarca"
+            placeholder="Marca"
+            [items]="listMarca" 
+            [clearable]="true"
+            bindLabel="sDesc"
+            bindValue="nCod"
+            notFoundText="No hay marcas disponibles."
+            appendTo="body"
+            class="custom-ngform"
+        >
+        </ng-select>
+        <mat-error *ngIf="isInvalidFc(fcMarca)">{{getErrorFC(fcMarca)}}</mat-error>
+    </div>
+    
+    <div class="col-12 col-md-6 m-0">
+        <ng-select
+            [formControl]="fcPresentacion"
+            placeholder="Presentación"
+            [items]="listPresentacion" 
+            [clearable]="true"
+            bindLabel="sDesc"
+            bindValue="nCod"
+            notFoundText="No hay presentaciones disponibles."
+            appendTo="body"
+            class="custom-ngform"
+        >
+        </ng-select>
+        <mat-error *ngIf="isInvalidFc(fcPresentacion)">{{getErrorFC(fcPresentacion)}}</mat-error>
+    </div>
+
+    <div class="col-12 col-md-6 m-0">
+        <ng-select
+            [formControl]="fcUnidadMedida"
+            placeholder="Unidad Medida"
+            [items]="listUnidadMedida" 
+            [clearable]="true"
+            bindLabel="sDesc"
+            bindValue="nCod"
+            notFoundText="No hay unidades de medida disponibles."
+            appendTo="body"
+            class="custom-ngform"
+        >
+        </ng-select>
+        <mat-error *ngIf="isInvalidFc(fcUnidadMedida)">{{getErrorFC(fcUnidadMedida)}}</mat-error>
+    </div>
+
+    <mat-form-field class="col-12 col-md-6 m-0">
+        <mat-label>Cantidad</mat-label>
+        <input type="number" matInput [formControl]="fcCantidad">
+        <mat-error *ngIf="isInvalidFc(fcCantidad)">{{getErrorFC(fcCantidad)}}</mat-error>
+    </mat-form-field>
+</div>
+<div class="d-flex justify-content-between m-3">
+    <button mat-raised-button color="primary" (click)="fnGuardar()">GUARDAR</button>
+    <button mat-raised-button color="warn" (click)="onClose()">CANCELAR</button>
+</div>

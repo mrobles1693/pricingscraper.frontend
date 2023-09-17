@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiResponse } from 'src/app/shared/interfaces/ApiResponse';
+import { CategoriaDTO } from 'src/app/shared/interfaces/CategoriaDTO';
+import { ProductoCategoriaDTO } from 'src/app/shared/interfaces/ProductoCategoriaDTO';
 import { ProductoDTO } from 'src/app/shared/interfaces/ProductoDTO';
 import { SelectDTO } from 'src/app/shared/interfaces/SelectDTO';
 import { SqlRspDTO } from 'src/app/shared/interfaces/SqlRspDTO';
@@ -54,5 +56,29 @@ export class ProductoService {
   postUpdProducto(elemento : ProductoDTO): Observable<ApiResponse<SqlRspDTO>>{
     const httpHeader = new HttpHeaders({'Content-type':'application/json'});
     return this.http.post<ApiResponse<SqlRspDTO>>(`${this.url}postUpdProducto`, elemento, {headers: httpHeader});
+  }
+
+  getListCategoriasByProducto(nIdProducto : number): Observable<ApiResponse<CategoriaDTO[]>>{
+    const httpHeader = new HttpHeaders({'Content-type':'application/json'});
+    const httpParams = new HttpParams()
+    .append('nIdProducto', nIdProducto);
+    return this.http.get<ApiResponse<CategoriaDTO[]>>(`${this.url}getListCategoriasByProducto`, {headers: httpHeader, params: httpParams});
+  }
+
+  getListCategoriasDispByProducto(nIdProducto : number): Observable<ApiResponse<CategoriaDTO[]>>{
+    const httpHeader = new HttpHeaders({'Content-type':'application/json'});
+    const httpParams = new HttpParams()
+    .append('nIdProducto', nIdProducto);
+    return this.http.get<ApiResponse<CategoriaDTO[]>>(`${this.url}getListCategoriasDispByProducto`, {headers: httpHeader, params: httpParams});
+  }
+
+  postInsCategoriaProducto(elemento : ProductoCategoriaDTO): Observable<ApiResponse<SqlRspDTO>>{
+    const httpHeader = new HttpHeaders({'Content-type':'application/json'});
+    return this.http.post<ApiResponse<SqlRspDTO>>(`${this.url}postInsCategoriaProducto`, elemento, {headers: httpHeader});
+  }
+  
+  postDelCategoriaProducto(elemento : ProductoCategoriaDTO): Observable<ApiResponse<SqlRspDTO>>{
+    const httpHeader = new HttpHeaders({'Content-type':'application/json'});
+    return this.http.post<ApiResponse<SqlRspDTO>>(`${this.url}postDelCategoriaProducto`, elemento, {headers: httpHeader});
   }
 }
