@@ -14,6 +14,9 @@ import { FormPresentacionComponent } from './presentacion/dialogs/form-presentac
 import { CategoriaComponent } from './categoria/categoria.component';
 import { FormCategoriaComponent } from './categoria/dialogs/form-categoria/form-categoria.component';
 
+import { UnidadMedidaComponent } from './unidad-medida/unidad-medida.component';
+import { FormUnidadMedidaComponent } from './unidad-medida/dialogs/form-unidad-medida/form-unidad-medida.component';
+
 export const PRODUCTO_RUTAS_COMPONENTES = [
     ProductoComponent,
     MarcaComponent,
@@ -21,7 +24,9 @@ export const PRODUCTO_RUTAS_COMPONENTES = [
     PresentacionComponent,
     FormPresentacionComponent,
     CategoriaComponent,
-    FormCategoriaComponent
+    FormCategoriaComponent,
+    UnidadMedidaComponent,
+    FormUnidadMedidaComponent
 ]
 
 const routes : Routes = [
@@ -45,6 +50,10 @@ const routes : Routes = [
             {
                 path: "categoria",
                 component: CategoriaComponent,
+            },
+            {
+                path: "unidad-medida",
+                component: UnidadMedidaComponent,
             }
         ]
     },

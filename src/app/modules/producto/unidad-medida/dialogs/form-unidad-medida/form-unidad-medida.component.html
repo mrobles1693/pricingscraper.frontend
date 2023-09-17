@@ -1,16 +1,22 @@
 <div class="ps-header-component m-3">
-    {{sTitulo}} PRESENTACION
+    {{sTitulo}} UNIDAD MEDIDA
 </div>
 <div class="row m-0 p-0">
     <mat-form-field class="col-12 col-md-2 m-0">
         <mat-label>ID:</mat-label>
-        <input type="text" matInput disabled value="{{nIdPresentacion}}">
+        <input type="text" matInput disabled value="{{nIdUnidadMedida}}">
     </mat-form-field>
 
-    <mat-form-field class="col-12 col-md-10 m-0">
-        <mat-label>Presentación</mat-label>
-        <input type="text" matInput [formControl]="fcPresentacion">
-        <mat-error *ngIf="isInvalidFc(fcPresentacion)">{{getErrorFC(fcPresentacion)}}</mat-error>
+    <mat-form-field class="col-12 col-md-6 m-0">
+        <mat-label>Unidad Medida</mat-label>
+        <input type="text" matInput [formControl]="fcUnidadMedida">
+        <mat-error *ngIf="isInvalidFc(fcUnidadMedida)">{{getErrorFC(fcUnidadMedida)}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-4 m-0">
+        <mat-label>Simbolo</mat-label>
+        <input type="text" matInput [formControl]="fcSimbolo">
+        <mat-error *ngIf="isInvalidFc(fcSimbolo)">{{getErrorFC(fcSimbolo)}}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="col-12 col-md-12 m-0">
