@@ -4,8 +4,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { BotExecutionService } from './bot-execution.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MatDialog } from '@angular/material/dialog';
 import { BotExecutionDTO } from 'src/app/shared/interfaces/BotExecutionDTO';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bot-execution',
@@ -16,13 +16,13 @@ export class BotExecutionComponent {
   fcFiltro = new FormControl(null);
 
   dsBotExecutions = new MatTableDataSource<BotExecutionDTO>();
-  dcBotExecutions = ['nIdBotExecution', 'nIdTurno', 'sFechaIni', 'sFechaFin', 'nMinutos', 'Opciones'];
+  dcBotExecutions = ['nIdBotExecution', 'nIdTurno', 'sFechaIni', 'sFechaFin', 'nMinutos', 'nCantProductos', 'nCantSimilar', 'Opciones'];
   @ViewChild('pagBotExecutions', {static: false}) pagBotExecutions! : MatPaginator;
 
   constructor(
     private service : BotExecutionService,
     private spinner : NgxSpinnerService,
-    private dialog : MatDialog,
+    private router : Router,
   ){
     this.fnLoadBotExecutions();
   }
@@ -46,25 +46,6 @@ export class BotExecutionComponent {
   }
 
   odVerReporte(botExecution? : BotExecutionDTO){
-    // const dialogResult = this.dialog.open(
-    //   FormBotExecutionComponent,
-    //   {
-    //     width:'600px',
-    //     maxHeight: '80vh',
-    //     disableClose : true,
-    //     data  : {
-    //       opcion : botExecution == null ? 1 : 2,
-    //       botExecution : botExecution
-    //     }
-    //   }
-    // );
-
-    // dialogResult.afterClosed().subscribe( 
-    //   res => {
-    //     if(res.exito){
-    //       this.fnLoadBotExecutions();
-    //     }
-    //   }
-    // );
+    this.router.navigate(['/producto/bot-execution/details/'+botExecution?.nIdBotExecution]);
   }
 }

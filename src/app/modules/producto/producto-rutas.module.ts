@@ -26,6 +26,7 @@ import { ComercioComponent } from './comercio/comercio.component';
 import { FormComercioComponent } from './comercio/dialogs/form-comercio/form-comercio.component';
 
 import { BotExecutionComponent } from './bot-execution/bot-execution.component';
+import { DetailsBotExecutionComponent } from './bot-execution/sub-views/details-bot-execution/details-bot-execution.component';
 
 export const PRODUCTO_RUTAS_COMPONENTES = [
     ProductoComponent,
@@ -44,7 +45,8 @@ export const PRODUCTO_RUTAS_COMPONENTES = [
     FormUnidadMedidaComponent,
     ComercioComponent,
     FormComercioComponent,
-    BotExecutionComponent
+    BotExecutionComponent,
+    DetailsBotExecutionComponent
 ]
 
 const routes : Routes = [
@@ -84,7 +86,11 @@ const routes : Routes = [
             {
                 path: "bot-execution",
                 component: BotExecutionComponent,
-            }
+            },
+            {
+                path : "bot-execution/details/:idBotExecution",
+                component : DetailsBotExecutionComponent,
+            },
         ]
     },
 ];

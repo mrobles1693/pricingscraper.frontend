@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center m-4">
+    <div class="w-100 text-center">
+        <div class="ps-header-component">
+            DETALLE DE EJECUCIÓN
+        </div>
+        <div class="row m-0 py-4 shadow rounded-1">
+            <mat-form-field class="col-12 col-md-6" appearance="outline" >
+                <mat-label style="color: #3f51b5">Id Ejecución:</mat-label>
+                <input matInput value="{{botExecution?.nIdBotExecution}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-6" appearance="outline">
+                <mat-label style="color: #3f51b5">Turno:</mat-label>
+                <input matInput value="{{botExecution?.nIdTurno}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-4" appearance="outline" >
+                <mat-label style="color: #3f51b5">Fecha Inicio:</mat-label>
+                <input matInput value="{{botExecution?.sFechaIni}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-4" appearance="outline">
+                <mat-label style="color: #3f51b5">Fecha Fin:</mat-label>
+                <input matInput value="{{botExecution?.sFechaFin}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-4" appearance="outline">
+                <mat-label style="color: #3f51b5">Duración:</mat-label>
+                <input matInput value="{{botExecution?.nMinutos}} min." style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-6" appearance="outline">
+                <mat-label style="color: #3f51b5">Productos Scrap./Productos:</mat-label>
+                <input matInput value="{{botExecution?.nCantProductosScrap + '/' + botExecution?.nCantProductos}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-md-6" appearance="outline">
+                <mat-label style="color: #3f51b5">Similares Scrap/Similares:</mat-label>
+                <input matInput value="{{botExecution?.nCantSimilarScrap + '/' + botExecution?.nCantSimilar}}" style="color: black" [disabled]='true'>
+            </mat-form-field>
+            <div class="col d-flex justify-content-end">
+                <button mat-raised-button class="mx-2" color="warn" (click)="fnRegresar()">Regresar</button>
+            </div>
+        </div>
+        <div class="row m-0 mt-4 py-4 shadow rounded-1">
+            <!-- <div class="row">
+                <mat-form-field class="col-12 col-md-6 m-0" appearance="outline">
+                    <mat-label>Filtrar:</mat-label>
+                    <input type="text" [formControl]="fcFiltro" (keyup)="filtrarRepo()" matInput>
+                </mat-form-field>
+            </div> -->
+
+            <div class="ps-table-container">
+                <table mat-table [dataSource]="dsRepo">
+                    <ng-container [matColumnDef]="dc" *ngFor="let dc of dcRepo">
+                        <th mat-header-cell class="ps-th" [innerHTML]="fnGetHeader(dc)" *matHeaderCellDef>
+                        </th>
+                        <td mat-cell class="text-center" *matCellDef="let repo"> {{repo.get(dc)}} </td>
+                    </ng-container>
+    
+                    <tr mat-header-row *matHeaderRowDef="dcRepo"></tr>
+                    <tr mat-row *matRowDef="let row; columns: dcRepo;"></tr>
+                </table>
+            </div>
+            <mat-paginator [hidden]="dsRepo.data.length==0" #pagRepo [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>
+    

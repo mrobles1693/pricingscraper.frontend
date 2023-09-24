@@ -36,6 +36,14 @@
                         <th mat-header-cell class="ps-th" *matHeaderCellDef>Minutos</th>
                         <td mat-cell class="text-center" *matCellDef="let BotExecution"> {{BotExecution.nMinutos}} </td>
                     </ng-container>
+                    <ng-container matColumnDef="nCantProductos">
+                        <th mat-header-cell class="ps-th" *matHeaderCellDef>Productos</th>
+                        <td mat-cell class="text-center" *matCellDef="let BotExecution"> {{BotExecution.nCantProductos}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="nCantSimilar">
+                        <th mat-header-cell class="ps-th" *matHeaderCellDef>Similares</th>
+                        <td mat-cell class="text-center" *matCellDef="let BotExecution"> {{BotExecution.nCantSimilar}} </td>
+                    </ng-container>
                     <ng-container matColumnDef="Opciones">
                         <th mat-header-cell class="ps-th" *matHeaderCellDef></th>
                         <td mat-cell *matCellDef="let BotExecution">
