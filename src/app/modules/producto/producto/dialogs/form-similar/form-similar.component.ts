@@ -126,7 +126,7 @@ export class FormSimilarComponent {
         nPrecio : this.fcPrecio.value,
         sUrl : this.fcUrl.value,
         bElegido : this.fcElegido.value,
-        bManual : false,
+        bManual : true,
         nIdUsuario_crea : this.authService.getUserId()
       }
 
